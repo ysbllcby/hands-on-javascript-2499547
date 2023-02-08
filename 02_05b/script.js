@@ -23,7 +23,19 @@ const newData = data.map((imgData) => {
 
 const mainContent = document.querySelector(".main-content");
 
-mainContent.innerHTML = Cardlist(newData);
+const loadButton = document.querySelector("#load");
+const loader = document.querySelector(".loader");
+
+// Event listener to the load button
+loadButton.addEventListener("click", () => {
+  loader.classList.toggle("hidden");
+  loadButton.classList.toggle("hidden");
+
+  // Timer function that has a callback
+  setTimeout(() => {
+    mainContent.innerHTML = Cardlist(newData);
+  }, 3000);
+});
 
 /**
  * Light/dark mode feature.
